@@ -1,0 +1,333 @@
+Using model FastPFRec
+Reading data and preprocessing...
+Using device: cpu
+/Users/bytedance/Desktop/Files/py_projects/FastPFRec/base/torch_interface.py:11: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/utils/tensor_new.cpp:256.)
+  i = torch.LongTensor([coo.row, coo.col])
+/Users/bytedance/Desktop/Files/py_projects/FastPFRec/base/torch_interface.py:13: UserWarning: torch.sparse.SparseTensor(indices, values, shape, *, device=) is deprecated.  Please use torch.sparse_coo_tensor(indices, values, shape, dtype=, device=). (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/utils/tensor_new.cpp:656.)
+  return torch.sparse.FloatTensor(i, v, coo.shape)
+Emb size: 64
+./dataset/yelp_test/train.txtpretrain_epoch:5
+noise_scale:0.1
+clip_value:0.5
+pretrain_noise:0.1
+pretrain_nclient:256
+
+2026-01-18 17:07:57,765 - FastPFRec - INFO - ### model configuration ###
+2026-01-18 17:07:57,765 - FastPFRec - INFO - training.set=./dataset/yelp_test/train.txt
+2026-01-18 17:07:57,765 - FastPFRec - INFO - test.set=./dataset/yelp_test/test.txt
+2026-01-18 17:07:57,765 - FastPFRec - INFO - valid.set=./dataset/yelp_test/valid.txt
+2026-01-18 17:07:57,765 - FastPFRec - INFO - model.name=FastPFRec
+2026-01-18 17:07:57,766 - FastPFRec - INFO - model.type=graph
+2026-01-18 17:07:57,766 - FastPFRec - INFO - item.ranking=-topN 10,20
+2026-01-18 17:07:57,766 - FastPFRec - INFO - embedding.size=64
+2026-01-18 17:07:57,766 - FastPFRec - INFO - num.max.epoch=500
+2026-01-18 17:07:57,766 - FastPFRec - INFO - batch_size=256
+2026-01-18 17:07:57,766 - FastPFRec - INFO - learnRate=0.001
+2026-01-18 17:07:57,766 - FastPFRec - INFO - reg.lambda=0.0001
+2026-01-18 17:07:57,766 - FastPFRec - INFO - PerFedRec=-n_layer 2
+2026-01-18 17:07:57,766 - FastPFRec - INFO - output.setup=-dir ./results8/
+2026-01-18 17:07:57,766 - FastPFRec - INFO - trusted_nodes_num=10
+2026-01-18 17:07:57,766 - FastPFRec - INFO - anomaly_detection_enabled=True
+2026-01-18 17:07:57,766 - FastPFRec - INFO - anomaly_ratio_threshold=0.2
+2026-01-18 17:07:57,766 - FastPFRec - INFO - anomaly_dist_threshold=3.5
+2026-01-18 17:07:57,766 - FastPFRec - INFO - noise_scale=0.1
+2026-01-18 17:07:57,766 - FastPFRec - INFO - clip_value=0.5
+2026-01-18 17:07:57,766 - FastPFRec - INFO - pretrain_noise=0.1
+2026-01-18 17:07:57,766 - FastPFRec - INFO - pretrain_nclient=256
+2026-01-18 17:07:57,766 - FastPFRec - INFO - pretrain_epoch=5
+Model: FastPFRec
+Training Set: /Users/bytedance/Desktop/Files/py_projects/FastPFRec/dataset/yelp_test/train.txt
+Test Set: /Users/bytedance/Desktop/Files/py_projects/FastPFRec/dataset/yelp_test/test.txt
+Embedding Dimension: 64
+Maximum Epoch: 500
+Learning Rate: 0.001
+Batch Size: 256
+Regularization Parameter: 0.0001
+Training Set Size: (user number: 5224, item number 7597, interaction number: 112576)
+Test Set Size: (user number: 5144, item number 3137, interaction number: 5224)
+================================================================================
+Initializing and building model...
+Training Model...
+Evaluating the model...
+Progress: [                                                  ]0%Progress: [+++++++++                                         ]18%Progress: [+++++++++++++++++++                               ]38%Progress: [+++++++++++++++++++++++++++++                     ]58%Progress: [++++++++++++++++++++++++++++++++++++++            ]76%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++  ]96%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++++]100%
+------------------------------------------------------------------------------------------------------------------------
+Real-Time Ranking Performance  (Top-20 Item Recommendation)
+*Current Performance*
+Epoch: 1, Hit Ratio:0.01528  |  Precision:0.00076  |  Recall:0.01528  |  NDCG:0.00517
+*Best Performance* 
+Epoch: 1, Hit Ratio:0.01528  |  Precision:0.00076  |  Recall:0.01528  |  NDCG:0.00517
+------------------------------------------------------------------------------------------------------------------------
+Evaluating the model...
+Progress: [                                                  ]0%Progress: [+++++++++                                         ]18%Progress: [+++++++++++++++++++                               ]38%Progress: [+++++++++++++++++++++++++++++                     ]58%Progress: [++++++++++++++++++++++++++++++++++++++            ]76%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++  ]96%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++++]100%
+------------------------------------------------------------------------------------------------------------------------
+Real-Time Ranking Performance  (Top-20 Item Recommendation)
+*Current Performance*
+Epoch: 2, Hit Ratio:0.01625  |  Precision:0.00081  |  Recall:0.01625  |  NDCG:0.00595
+*Best Performance* 
+Epoch: 2, Hit Ratio:0.01625  |  Precision:0.00081  |  Recall:0.01625  |  NDCG:0.00595
+------------------------------------------------------------------------------------------------------------------------
+Evaluating the model...
+Progress: [                                                  ]0%Progress: [+++++++++                                         ]18%Progress: [+++++++++++++++++++                               ]38%Progress: [+++++++++++++++++++++++++++++                     ]58%Progress: [++++++++++++++++++++++++++++++++++++++            ]76%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++  ]96%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++++]100%
+------------------------------------------------------------------------------------------------------------------------
+Real-Time Ranking Performance  (Top-20 Item Recommendation)
+*Current Performance*
+Epoch: 3, Hit Ratio:0.01741  |  Precision:0.00087  |  Recall:0.01741  |  NDCG:0.00627
+*Best Performance* 
+Epoch: 3, Hit Ratio:0.01741  |  Precision:0.00087  |  Recall:0.01741  |  NDCG:0.00627
+------------------------------------------------------------------------------------------------------------------------
+Evaluating the model...
+Progress: [                                                  ]0%Progress: [+++++++++                                         ]18%Progress: [+++++++++++++++++++                               ]38%Progress: [+++++++++++++++++++++++++++++                     ]58%Progress: [++++++++++++++++++++++++++++++++++++++            ]76%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++  ]96%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++++]100%
+------------------------------------------------------------------------------------------------------------------------
+Real-Time Ranking Performance  (Top-20 Item Recommendation)
+*Current Performance*
+Epoch: 4, Hit Ratio:0.01683  |  Precision:0.00084  |  Recall:0.01683  |  NDCG:0.00663
+*Best Performance* 
+Epoch: 3, Hit Ratio:0.01741  |  Precision:0.00087  |  Recall:0.01741  |  NDCG:0.00627
+------------------------------------------------------------------------------------------------------------------------
+Evaluating the model...
+Progress: [                                                  ]0%Progress: [+++++++++                                         ]18%Progress: [+++++++++++++++++++                               ]38%Progress: [+++++++++++++++++++++++++++++                     ]58%Progress: [++++++++++++++++++++++++++++++++++++++            ]76%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++  ]96%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++++]100%
+------------------------------------------------------------------------------------------------------------------------
+Real-Time Ranking Performance  (Top-20 Item Recommendation)
+*Current Performance*
+Epoch: 5, Hit Ratio:0.01664  |  Precision:0.00083  |  Recall:0.01664  |  NDCG:0.00669
+*Best Performance* 
+Epoch: 3, Hit Ratio:0.01741  |  Precision:0.00087  |  Recall:0.01741  |  NDCG:0.00627
+------------------------------------------------------------------------------------------------------------------------
+/Users/bytedance/Desktop/Files/py_projects/FastPFRec/data/graph.py:14: RuntimeWarning: divide by zero encountered in power
+  d_inv = np.power(rowsum, -0.5).flatten()
+training: 1 batch 100 batch_loss: 0.6707623600959778
+training: 1 batch 200 batch_loss: 0.6737438440322876
+Avg Loss: 0.6368751551490277
+training: 2 batch 100 batch_loss: 0.6635908484458923
+training: 2 batch 200 batch_loss: 0.548834502696991
+Avg Loss: 0.620158133096993
+training: 3 batch 100 batch_loss: 0.6282815933227539
+training: 3 batch 200 batch_loss: 0.6176087856292725
+Avg Loss: 0.6057434919057414
+training: 4 batch 100 batch_loss: 0.5835486650466919
+training: 4 batch 200 batch_loss: 0.6454272866249084
+Avg Loss: 0.5843598493374884
+training: 5 batch 100 batch_loss: 0.618510901927948
+training: 5 batch 200 batch_loss: 0.635010302066803
+Avg Loss: 0.5605126766022295
+training: 6 batch 100 batch_loss: 0.4251836836338043
+training: 6 batch 200 batch_loss: 0.5375598669052124
+Avg Loss: 0.5287352367304265
+########################### evaluate global_model ###########################
+Evaluating the model...
+Progress: [                                                  ]0%Progress: [+++++++++                                         ]18%Progress: [+++++++++++++++++++                               ]38%Progress: [+++++++++++++++++++++++++++++                     ]58%Progress: [++++++++++++++++++++++++++++++++++++++            ]76%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++  ]96%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++++]100%
+------------------------------------------------------------------------------------------------------------------------
+Real-Time Ranking Performance  (Top-20 Item Recommendation)
+*Current Performance*
+Epoch: 6, Hit Ratio:0.0474  |  Precision:0.00237  |  Recall:0.0474  |  NDCG:0.01762
+*Best Performance* 
+Epoch: 6, Hit Ratio:0.0474  |  Precision:0.00237  |  Recall:0.0474  |  NDCG:0.01762
+------------------------------------------------------------------------------------------------------------------------
+########################### evaluate global_model done~###########################
+########################### evaluate local_model ###########################
+Evaluating the model...
+Progress: [                                                  ]0%Progress: [+++++++++                                         ]18%Progress: [+++++++++++++++++++                               ]38%Progress: [+++++++++++++++++++++++++++++                     ]58%Progress: [++++++++++++++++++++++++++++++++++++++            ]76%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++  ]96%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++++]100%
+------------------------------------------------------------------------------------------------------------------------
+Real-Time Ranking Performance  (Top-20 Item Recommendation)
+*Current Performance*
+Epoch: 6, Hit Ratio:0.04566  |  Precision:0.00228  |  Recall:0.04566  |  NDCG:0.01708
+*Best Performance* 
+Epoch: 6, Hit Ratio:0.0474  |  Precision:0.00237  |  Recall:0.0474  |  NDCG:0.01762
+------------------------------------------------------------------------------------------------------------------------
+########################### evaluate local_model done~###########################
+training: 7 batch 100 batch_loss: 0.5771011114120483
+training: 7 batch 200 batch_loss: 0.5935824513435364
+Avg Loss: 0.4960327392909676
+training: 8 batch 100 batch_loss: 0.5119602680206299
+training: 8 batch 200 batch_loss: 0.17771384119987488
+Avg Loss: 0.4669616933679208
+training: 9 batch 100 batch_loss: 0.5973496437072754
+training: 9 batch 200 batch_loss: 0.5277017951011658
+Avg Loss: 0.4463840710814111
+training: 10 batch 100 batch_loss: 0.4265667200088501
+training: 10 batch 200 batch_loss: 0.26368248462677
+Avg Loss: 0.4237713707261719
+training: 11 batch 100 batch_loss: 0.520400881767273
+training: 11 batch 200 batch_loss: 0.29185301065444946
+Avg Loss: 0.3503735902486369
+########################### evaluate global_model ###########################
+Evaluating the model...
+Progress: [                                                  ]0%Progress: [+++++++++                                         ]18%Progress: [+++++++++++++++++++                               ]38%Progress: [+++++++++++++++++++++++++++++                     ]58%Progress: [++++++++++++++++++++++++++++++++++++++            ]76%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++  ]96%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++++]100%
+------------------------------------------------------------------------------------------------------------------------
+Real-Time Ranking Performance  (Top-20 Item Recommendation)
+*Current Performance*
+Epoch: 11, Hit Ratio:0.0534  |  Precision:0.00267  |  Recall:0.0534  |  NDCG:0.02037
+*Best Performance* 
+Epoch: 11, Hit Ratio:0.0534  |  Precision:0.00267  |  Recall:0.0534  |  NDCG:0.02037
+------------------------------------------------------------------------------------------------------------------------
+########################### evaluate global_model done~###########################
+########################### evaluate local_model ###########################
+Evaluating the model...
+Progress: [                                                  ]0%Progress: [+++++++++                                         ]18%Progress: [+++++++++++++++++++                               ]38%Progress: [+++++++++++++++++++++++++++++                     ]58%Progress: [++++++++++++++++++++++++++++++++++++++            ]76%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++  ]96%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++++]100%
+------------------------------------------------------------------------------------------------------------------------
+Real-Time Ranking Performance  (Top-20 Item Recommendation)
+*Current Performance*
+Epoch: 11, Hit Ratio:0.05436  |  Precision:0.00272  |  Recall:0.05436  |  NDCG:0.02042
+*Best Performance* 
+Epoch: 11, Hit Ratio:0.05436  |  Precision:0.00272  |  Recall:0.05436  |  NDCG:0.02042
+------------------------------------------------------------------------------------------------------------------------
+########################### evaluate local_model done~###########################
+training: 12 batch 100 batch_loss: 0.39010775089263916
+training: 12 batch 200 batch_loss: 0.31352099776268005
+Avg Loss: 0.39027844625525177
+training: 13 batch 100 batch_loss: 0.21693068742752075
+training: 13 batch 200 batch_loss: 0.2847444713115692
+Avg Loss: 0.3925938193569891
+training: 14 batch 100 batch_loss: 0.2991589605808258
+training: 14 batch 200 batch_loss: 0.3706457018852234
+Avg Loss: 0.3600206688279286
+training: 15 batch 100 batch_loss: 0.5891597270965576
+training: 15 batch 200 batch_loss: 0.5276015996932983
+Avg Loss: 0.3558511980227195
+training: 16 batch 100 batch_loss: 0.5656625628471375
+training: 16 batch 200 batch_loss: 0.3280169367790222
+Avg Loss: 0.35586419311584905
+########################### evaluate global_model ###########################
+Evaluating the model...
+Progress: [                                                  ]0%Progress: [+++++++++                                         ]18%Progress: [+++++++++++++++++++                               ]38%Progress: [+++++++++++++++++++++++++++++                     ]58%Progress: [++++++++++++++++++++++++++++++++++++++            ]76%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++  ]96%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++++]100%
+------------------------------------------------------------------------------------------------------------------------
+Real-Time Ranking Performance  (Top-20 Item Recommendation)
+*Current Performance*
+Epoch: 16, Hit Ratio:0.05784  |  Precision:0.00289  |  Recall:0.05784  |  NDCG:0.02203
+*Best Performance* 
+Epoch: 16, Hit Ratio:0.05784  |  Precision:0.00289  |  Recall:0.05784  |  NDCG:0.02203
+------------------------------------------------------------------------------------------------------------------------
+########################### evaluate global_model done~###########################
+########################### evaluate local_model ###########################
+Evaluating the model...
+Progress: [                                                  ]0%Progress: [+++++++++                                         ]18%Progress: [+++++++++++++++++++                               ]38%Progress: [+++++++++++++++++++++++++++++                     ]58%Progress: [++++++++++++++++++++++++++++++++++++++            ]76%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++  ]96%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++++]100%
+------------------------------------------------------------------------------------------------------------------------
+Real-Time Ranking Performance  (Top-20 Item Recommendation)
+*Current Performance*
+Epoch: 16, Hit Ratio:0.05804  |  Precision:0.0029  |  Recall:0.05804  |  NDCG:0.0219
+*Best Performance* 
+Epoch: 16, Hit Ratio:0.05804  |  Precision:0.0029  |  Recall:0.05804  |  NDCG:0.0219
+------------------------------------------------------------------------------------------------------------------------
+########################### evaluate local_model done~###########################
+training: 17 batch 100 batch_loss: 0.25365838408470154
+training: 17 batch 200 batch_loss: 0.16716165840625763
+Avg Loss: 0.3369030640751589
+training: 18 batch 100 batch_loss: 0.471710741519928
+training: 18 batch 200 batch_loss: 0.17965447902679443
+Avg Loss: 0.3278672877349891
+training: 19 batch 100 batch_loss: 0.3699590563774109
+training: 19 batch 200 batch_loss: 0.15750539302825928
+Avg Loss: 0.3298923180846032
+training: 20 batch 100 batch_loss: 0.5557413101196289
+training: 20 batch 200 batch_loss: 0.38620415329933167
+Avg Loss: 0.33462455071276054
+training: 21 batch 100 batch_loss: 0.3538091480731964
+training: 21 batch 200 batch_loss: 0.9470990300178528
+Avg Loss: 0.3106146038189763
+########################### evaluate global_model ###########################
+Evaluating the model...
+Progress: [                                                  ]0%Progress: [+++++++++                                         ]18%Progress: [+++++++++++++++++++                               ]38%Progress: [+++++++++++++++++++++++++++++                     ]58%Progress: [++++++++++++++++++++++++++++++++++++++            ]76%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++  ]96%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++++]100%
+------------------------------------------------------------------------------------------------------------------------
+Real-Time Ranking Performance  (Top-20 Item Recommendation)
+*Current Performance*
+Epoch: 21, Hit Ratio:0.05746  |  Precision:0.00287  |  Recall:0.05746  |  NDCG:0.02196
+*Best Performance* 
+Epoch: 16, Hit Ratio:0.05804  |  Precision:0.0029  |  Recall:0.05804  |  NDCG:0.0219
+------------------------------------------------------------------------------------------------------------------------
+########################### evaluate global_model done~###########################
+########################### evaluate local_model ###########################
+Evaluating the model...
+Progress: [                                                  ]0%Progress: [+++++++++                                         ]18%Progress: [+++++++++++++++++++                               ]38%Progress: [+++++++++++++++++++++++++++++                     ]58%Progress: [++++++++++++++++++++++++++++++++++++++            ]76%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++  ]96%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++++]100%
+------------------------------------------------------------------------------------------------------------------------
+Real-Time Ranking Performance  (Top-20 Item Recommendation)
+*Current Performance*
+Epoch: 21, Hit Ratio:0.05765  |  Precision:0.00288  |  Recall:0.05765  |  NDCG:0.02176
+*Best Performance* 
+Epoch: 16, Hit Ratio:0.05804  |  Precision:0.0029  |  Recall:0.05804  |  NDCG:0.0219
+------------------------------------------------------------------------------------------------------------------------
+########################### evaluate local_model done~###########################
+training: 22 batch 100 batch_loss: 0.1689337193965912
+training: 22 batch 200 batch_loss: 0.28166863322257996
+Avg Loss: 0.3084734474250581
+training: 23 batch 100 batch_loss: 0.32400447130203247
+training: 23 batch 200 batch_loss: 0.40859073400497437
+Avg Loss: 0.31971213102224283
+training: 24 batch 100 batch_loss: 0.41846007108688354
+training: 24 batch 200 batch_loss: 0.24937182664871216
+Avg Loss: 0.31118571311526466
+training: 25 batch 100 batch_loss: 0.3124859035015106
+training: 25 batch 200 batch_loss: 0.1842821091413498
+Avg Loss: 0.30765484130824916
+Warning: Trusted node 4 detected as anomalous and isolated. Affected clients: 26
+Anomaly detection summary: 1/10 nodes isolated, 26 clients affected
+training: 26 batch 100 batch_loss: 0.15813641250133514
+training: 26 batch 200 batch_loss: 0.3858676552772522
+Avg Loss: 0.31240852316841483
+########################### evaluate global_model ###########################
+Evaluating the model...
+Progress: [                                                  ]0%Progress: [+++++++++                                         ]18%Progress: [+++++++++++++++++++                               ]38%Progress: [+++++++++++++++++++++++++++++                     ]58%Progress: [++++++++++++++++++++++++++++++++++++++            ]76%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++  ]96%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++++]100%
+------------------------------------------------------------------------------------------------------------------------
+Real-Time Ranking Performance  (Top-20 Item Recommendation)
+*Current Performance*
+Epoch: 26, Hit Ratio:0.05707  |  Precision:0.00285  |  Recall:0.05707  |  NDCG:0.02129
+*Best Performance* 
+Epoch: 16, Hit Ratio:0.05804  |  Precision:0.0029  |  Recall:0.05804  |  NDCG:0.0219
+------------------------------------------------------------------------------------------------------------------------
+########################### evaluate global_model done~###########################
+########################### evaluate local_model ###########################
+Evaluating the model...
+Progress: [                                                  ]0%Progress: [+++++++++                                         ]18%Progress: [+++++++++++++++++++                               ]38%Progress: [+++++++++++++++++++++++++++++                     ]58%Progress: [++++++++++++++++++++++++++++++++++++++            ]76%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++  ]96%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++++]100%
+------------------------------------------------------------------------------------------------------------------------
+Real-Time Ranking Performance  (Top-20 Item Recommendation)
+*Current Performance*
+Epoch: 26, Hit Ratio:0.05475  |  Precision:0.00274  |  Recall:0.05475  |  NDCG:0.02039
+*Best Performance* 
+Epoch: 16, Hit Ratio:0.05804  |  Precision:0.0029  |  Recall:0.05804  |  NDCG:0.0219
+------------------------------------------------------------------------------------------------------------------------
+########################### evaluate local_model done~###########################
+training: 27 batch 100 batch_loss: 0.27135828137397766
+training: 27 batch 200 batch_loss: 0.4040277898311615
+Avg Loss: 0.30245320427638944
+training: 28 batch 100 batch_loss: 0.35688093304634094
+training: 28 batch 200 batch_loss: 0.41544467210769653
+Avg Loss: 0.3058199338556733
+training: 29 batch 100 batch_loss: 0.4769062399864197
+training: 29 batch 200 batch_loss: 0.23179617524147034
+Avg Loss: 0.30038820108165964
+training: 30 batch 100 batch_loss: 0.3474147617816925
+training: 30 batch 200 batch_loss: 0.21363231539726257
+Avg Loss: 0.29984911539941095
+training: 31 batch 100 batch_loss: 0.4039281904697418
+training: 31 batch 200 batch_loss: 0.14712822437286377
+Avg Loss: 0.3079240583160754
+########################### evaluate global_model ###########################
+Evaluating the model...
+Progress: [                                                  ]0%Progress: [+++++++++                                         ]18%Progress: [+++++++++++++++++++                               ]38%Progress: [+++++++++++++++++++++++++++++                     ]58%Progress: [++++++++++++++++++++++++++++++++++++++            ]76%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++  ]96%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++++]100%
+------------------------------------------------------------------------------------------------------------------------
+Real-Time Ranking Performance  (Top-20 Item Recommendation)
+*Current Performance*
+Epoch: 31, Hit Ratio:0.05668  |  Precision:0.00283  |  Recall:0.05668  |  NDCG:0.02132
+*Best Performance* 
+Epoch: 16, Hit Ratio:0.05804  |  Precision:0.0029  |  Recall:0.05804  |  NDCG:0.0219
+------------------------------------------------------------------------------------------------------------------------
+########################### evaluate global_model done~###########################
+########################### evaluate local_model ###########################
+Evaluating the model...
+Progress: [                                                  ]0%Progress: [+++++++++                                         ]18%Progress: [+++++++++++++++++++                               ]38%Progress: [+++++++++++++++++++++++++++++                     ]58%Progress: [++++++++++++++++++++++++++++++++++++++            ]76%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++  ]96%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++++]100%
+------------------------------------------------------------------------------------------------------------------------
+Real-Time Ranking Performance  (Top-20 Item Recommendation)
+*Current Performance*
+Epoch: 31, Hit Ratio:0.05668  |  Precision:0.00283  |  Recall:0.05668  |  NDCG:0.0213
+*Best Performance* 
+Epoch: 16, Hit Ratio:0.05804  |  Precision:0.0029  |  Recall:0.05804  |  NDCG:0.0219
+------------------------------------------------------------------------------------------------------------------------
+########################### evaluate local_model done~###########################
+training: 32 batch 100 batch_loss: 0.24068577587604523
+training: 32 batch 200 batch_loss: 0.36937108635902405
+Avg Loss: 0.28893054234504234
+training: 33 batch 100 batch_loss: 0.23309408128261566
+training: 33 batch 200 batch_loss: 0.318991094827652
+Avg Loss: 0.3073568230611272
+training: 34 batch 100 batch_loss: 0.3050890266895294
+training: 34 batch 200 batch_loss: 0.19258126616477966
+Avg Loss: 0.28914981153502595

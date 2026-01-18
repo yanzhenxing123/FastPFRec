@@ -1,0 +1,91 @@
+Using model FastPFRec
+Reading data and preprocessing...
+Using device: cpu
+/Users/bytedance/Desktop/Files/py_projects/FastPFRec/base/torch_interface.py:11: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/utils/tensor_new.cpp:256.)
+  i = torch.LongTensor([coo.row, coo.col])
+/Users/bytedance/Desktop/Files/py_projects/FastPFRec/base/torch_interface.py:13: UserWarning: torch.sparse.SparseTensor(indices, values, shape, *, device=) is deprecated.  Please use torch.sparse_coo_tensor(indices, values, shape, dtype=, device=). (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/utils/tensor_new.cpp:656.)
+  return torch.sparse.FloatTensor(i, v, coo.shape)
+Emb size: 64
+./dataset/yelp_test/train.txtpretrain_epoch:5
+noise_scale:0.1
+clip_value:0.5
+pretrain_noise:0.1
+pretrain_nclient:256
+
+2026-01-18 17:07:44,547 - FastPFRec - INFO - ### model configuration ###
+2026-01-18 17:07:44,547 - FastPFRec - INFO - training.set=./dataset/yelp_test/train.txt
+2026-01-18 17:07:44,547 - FastPFRec - INFO - test.set=./dataset/yelp_test/test.txt
+2026-01-18 17:07:44,547 - FastPFRec - INFO - valid.set=./dataset/yelp_test/valid.txt
+2026-01-18 17:07:44,547 - FastPFRec - INFO - model.name=FastPFRec
+2026-01-18 17:07:44,547 - FastPFRec - INFO - model.type=graph
+2026-01-18 17:07:44,547 - FastPFRec - INFO - item.ranking=-topN 10,20
+2026-01-18 17:07:44,547 - FastPFRec - INFO - embedding.size=64
+2026-01-18 17:07:44,547 - FastPFRec - INFO - num.max.epoch=500
+2026-01-18 17:07:44,547 - FastPFRec - INFO - batch_size=256
+2026-01-18 17:07:44,547 - FastPFRec - INFO - learnRate=0.001
+2026-01-18 17:07:44,547 - FastPFRec - INFO - reg.lambda=0.0001
+2026-01-18 17:07:44,547 - FastPFRec - INFO - PerFedRec=-n_layer 2
+2026-01-18 17:07:44,547 - FastPFRec - INFO - output.setup=-dir ./results8/
+2026-01-18 17:07:44,547 - FastPFRec - INFO - trusted_nodes_num=10
+2026-01-18 17:07:44,547 - FastPFRec - INFO - anomaly_detection_enabled=True
+2026-01-18 17:07:44,547 - FastPFRec - INFO - anomaly_ratio_threshold=0.2
+2026-01-18 17:07:44,547 - FastPFRec - INFO - anomaly_dist_threshold=3.5
+2026-01-18 17:07:44,547 - FastPFRec - INFO - noise_scale=0.1
+2026-01-18 17:07:44,547 - FastPFRec - INFO - clip_value=0.5
+2026-01-18 17:07:44,547 - FastPFRec - INFO - pretrain_noise=0.1
+2026-01-18 17:07:44,547 - FastPFRec - INFO - pretrain_nclient=256
+2026-01-18 17:07:44,547 - FastPFRec - INFO - pretrain_epoch=5
+Model: FastPFRec
+Training Set: /Users/bytedance/Desktop/Files/py_projects/FastPFRec/dataset/yelp_test/train.txt
+Test Set: /Users/bytedance/Desktop/Files/py_projects/FastPFRec/dataset/yelp_test/test.txt
+Embedding Dimension: 64
+Maximum Epoch: 500
+Learning Rate: 0.001
+Batch Size: 256
+Regularization Parameter: 0.0001
+Training Set Size: (user number: 5224, item number 7597, interaction number: 112576)
+Test Set Size: (user number: 5144, item number 3137, interaction number: 5224)
+================================================================================
+Initializing and building model...
+Training Model...
+Evaluating the model...
+Progress: [                                                  ]0%Progress: [+++++++++                                         ]18%Progress: [+++++++++++++++++++                               ]38%Progress: [+++++++++++++++++++++++++++++                     ]58%Progress: [++++++++++++++++++++++++++++++++++++++            ]76%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++  ]96%Progress: [++++++++++++++++++++++++++++++++++++++++++++++++++]100%
+------------------------------------------------------------------------------------------------------------------------
+Real-Time Ranking Performance  (Top-20 Item Recommendation)
+*Current Performance*
+Epoch: 1, Hit Ratio:0.01412  |  Precision:0.00071  |  Recall:0.01412  |  NDCG:0.00513
+*Best Performance* 
+Epoch: 1, Hit Ratio:0.01412  |  Precision:0.00071  |  Recall:0.01412  |  NDCG:0.00513
+------------------------------------------------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/bytedance/Desktop/Files/py_projects/FastPFRec/main.py", line 106, in <module>
+    rec.execute()
+    ~~~~~~~~~~~^^
+  File "/Users/bytedance/Desktop/Files/py_projects/FastPFRec/SELFRec.py", line 26, in execute
+    recommender.execute()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bytedance/Desktop/Files/py_projects/FastPFRec/base/recommender.py", line 73, in execute
+    self.train()
+    ~~~~~~~~~~^^
+  File "/Users/bytedance/Desktop/Files/py_projects/FastPFRec/model/graph/FastPFRec.py", line 287, in train
+    self.pre_training(model)
+    ~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/bytedance/Desktop/Files/py_projects/FastPFRec/model/graph/FastPFRec.py", line 190, in pre_training
+    cl_loss = self.cl_rate * self.cal_cl_loss(self.data)
+                             ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/Users/bytedance/Desktop/Files/py_projects/FastPFRec/model/graph/FastPFRec.py", line 451, in cal_cl_loss
+    user_view_2, item_view_2 = self.model(perturbed=True,
+                               ~~~~~~~~~~^^^^^^^^^^^^^^^^
+                                          pretraining=True)  # torch.Size([5224, 64]) torch.Size([7597, 64])
+                                          ^^^^^^^^^^^^^^^^^
+  File "/Users/bytedance/miniconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/bytedance/miniconda3/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/bytedance/Desktop/Files/py_projects/FastPFRec/model/graph/FastPFRec.py", line 525, in forward
+    ego_embeddings += F.normalize(random_noise, dim=-1) * self.eps
+                      ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bytedance/miniconda3/lib/python3.13/site-packages/torch/nn/functional.py", line 5571, in normalize
+    denom = input.norm(p, dim, keepdim=True).clamp_min(eps).expand_as(input)
+KeyboardInterrupt
