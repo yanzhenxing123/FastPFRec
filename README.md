@@ -1,28 +1,28 @@
 # FastPFRec: A Fast Personalized Federated Recommendation with Secure Sharing
 
-FastPFRec 是一个面向图推荐的个性化联邦推荐实现，包含基于 trusted nodes 的两层聚合与FastGNN，用于实现更安全的参数共享。
+FastPFRec is a graph-based personalized federated recommender, featuring two-level aggregation via trusted nodes and a FastGNN encoder for more secure model sharing.
 
 ## Quick Start
 
-训练 FastPFRec（以 yelp 为例）：
+Train FastPFRec (example: yelp):
 
 ```bash
 python main.py --model FastPFRec --dataset=yelp 
 ```
 
-常用参数：
-- `--model`: 模型名（默认 `FastPFRec`）
-- `--dataset`: `kindle/yelp/gowalla/gowalla_real`（内部会映射到 `*_test` 目录）
-- `--emb`: embedding 维度（默认 `64`）
-- `--trusted_nodes_num`: trusted nodes 数量（默认 `10`）
+Common arguments:
+- `--model`: model name (default: `FastPFRec`)
+- `--dataset`: `kindle/yelp/gowalla/gowalla_real` (internally mapped to `*_test`)
+- `--emb`: embedding dimension (default: `64`)
+- `--trusted_nodes_num`: number of trusted nodes (default: `10`)
 
-运行后日志会写入 `./logs/`。
+Logs are written to `./logs/`.
 
 ## Datasets
 
-默认数据路径格式：
+Default dataset layout:
 - `./dataset/<dataset_name>/train.txt`
 - `./dataset/<dataset_name>/valid.txt`
 - `./dataset/<dataset_name>/test.txt`
 
-其中 `--dataset=yelp` 会映射到 `./dataset/yelp_test/`（其他 dataset 同理）。
+`--dataset=yelp` is mapped to `./dataset/yelp_test/` (same for other datasets).
