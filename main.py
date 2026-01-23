@@ -57,8 +57,9 @@ if __name__ == '__main__':
     parser.add_argument('--clip_value', type=str, default='0.5')
     parser.add_argument('--pretrain_noise', type=str, default='0.1')
     parser.add_argument('--pretrain_nclient', type=str, default='256')
-    parser.add_argument('--trusted_nodes_num', type=str, default='10',
-                        help='Number of trusted nodes for federated aggregation (only used by FastPFRec / secure variants)')
+    parser.add_argument('--trusted_nodes_num', type=str, default='10', help='Number of trusted nodes for federated aggregation (only used by FastPFRec / secure variants)')
+    parser.add_argument('--anomaly_detection_enabled', type=bool, default=False)
+
     args = parser.parse_args()
 
     # log file
@@ -101,6 +102,7 @@ if __name__ == '__main__':
     conf.__setitem__('pretrain_nclient', args.pretrain_nclient)
     conf.__setitem__('pretrain_epoch', args.pretrain_epoch)
     conf.__setitem__('trusted_nodes_num', args.trusted_nodes_num)
+    conf.__setitem__('anomaly_detection_enabled', args.anomaly_detection_enabled)
 
     rec = SELFRec(conf)
     rec.execute()

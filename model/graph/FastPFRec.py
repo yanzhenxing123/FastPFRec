@@ -65,7 +65,10 @@ class FastPFRec(GraphRecommender):
 
         print("Using device:", self.device)
 
-        args = OptionConf(self.config['PerFedRec'])
+        args = OptionConf(self.config['FastPFRec'])
+
+
+
         self.n_layers = int(args['-n_layer'])  # 2
         pretrain_noise = float(conf['pretrain_noise'])  # 0.1
         self.model = FastGNN_Encoder(
@@ -79,11 +82,8 @@ class FastPFRec(GraphRecommender):
         self.pretrain_nclient = int(conf['pretrain_nclient'])  # 256
         self.trusted_nodes_num = int(conf['trusted_nodes_num'])
         # 异常检测相关参数（可选，如果配置文件中没有则使用默认值）
-        self.anomaly_detection_enabled = (
-            conf['anomaly_detection_enabled'].lower() == 'true'
-            if conf.contain('anomaly_detection_enabled')
-            else True  # 默认启用
-        )
+        self.anomaly_detection_enabled = conf['anomaly_detection_enabled'] if conf.contain('anomaly_detection_enabled') else True  # 默认启用
+
         self.anomaly_ratio_threshold = (
             float(conf['anomaly_ratio_threshold'])
             if conf.contain('anomaly_ratio_threshold')
