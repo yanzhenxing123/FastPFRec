@@ -84,13 +84,13 @@ if __name__ == '__main__':
         exit(-1)
 
     if args.dataset == 'kindle':
-        args.dataset = 'kindle_test'
+        args.dataset = 'kindle'
     elif args.dataset == 'yelp':
-        args.dataset = 'yelp_test'
+        args.dataset = 'yelp'
     elif args.dataset == 'gowalla':
-        args.dataset = 'gowalla_test'
+        args.dataset = 'gowalla_100k'
     elif args.dataset == 'gowalla_real':
-        args.dataset = 'gowalla'
+        args.dataset = 'gowalla-1m'
 
     conf.__setitem__('training.set', f'./dataset/{args.dataset}/train.txt')
     conf.__setitem__('valid.set', f'./dataset/{args.dataset}/valid.txt')
