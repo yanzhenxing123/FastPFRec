@@ -26,3 +26,18 @@ Default dataset layout:
 - `./dataset/<dataset_name>/test.txt`
 
 `--dataset=yelp` is mapped to `./dataset/yelp_test/` (same for other datasets).
+
+
+## Citation
+
+If you find FastPFRec useful in your research or applications, please cite our paper:
+
+```bibtex
+
+@article{yan2026fastpfrec,
+    title = {FastPFRec: A Fast Personalized Federated Recommendation with Secure Sharing},
+    journal = {Expert Systems with Applications},
+    pages = {132135},
+    year = {2026},
+    author = {Zhenxing Yan and Jidong Yuan and Yongqi Sun and Haiyang Liu and Zhihui Gao}
+}
