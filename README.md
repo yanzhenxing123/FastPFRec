@@ -35,8 +35,9 @@ If you find FastPFRec useful in your research or applications, please cite our p
 ```bibtex
 
 @article{yan2026fastpfrec,
-    title = {FastPFRec: A Fast Personalized Federated Recommendation with Secure Sharing},
+    title = {FastPFRec: A fast personalized federated recommendation with secure sharing},
     journal = {Expert Systems with Applications},
+    volume = {319},
     pages = {132135},
     year = {2026},
     author = {Zhenxing Yan and Jidong Yuan and Yongqi Sun and Haiyang Liu and Zhihui Gao}
